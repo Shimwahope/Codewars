@@ -1,21 +1,14 @@
-function groupStudentsByCourse(studentList) {
+function groupStudentsByCourse(studentsList) {
   const courseMap = new Map();
-
-  for (const student of studentList) {
-    // Filter: Skip students with a grade below 70
-    if (student.grade < 70) continue;
-
-    for (const course of student.courses) {
-      // If the course isn't in the Map yet, initialize it with an empty array
-      if (!courseMap.has(course)) {
-        courseMap.set(course, []);
-      }
-      
-      // Push the student's name into the course's array
-      courseMap.get(course).push(student.name);
-    }
+  for(const student of studentsList){
+    if(student.grade<70) continue;
+    for(const course of student.course){
+        if(!courseMap.has(course)){
+            courseMap.set(course,[])
+        }
+        course.get(course).push(student.name)
+    } 
   }
-
   return courseMap;
 }
 
